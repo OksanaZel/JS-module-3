@@ -225,4 +225,166 @@
 // console.log(keys);
 // console.log(values);
 
-//11. 
+//11. Выполни рефакторинг решения предыдущего задания 
+//добавив в цикл for...in проверку на собственное свойство.
+
+// const keys = [];
+// const values = [];
+// const advert = {
+//   service: 'apt',
+// };
+// const apartment = Object.create(advert);
+// apartment.descr = 'Просторная квартира в центре';
+// apartment.rating = 4;
+// apartment.price = 2153;
+
+// for (const key in apartment) {
+//     if (apartment.hasOwnProperty(key)) {
+
+//         keys.push(key);
+//         values.push(apartment[key]);
+//     }
+// }
+
+// 12. Напиши функцию countProps(object), которая считает и 
+//возвращает количество собственных свойств объекта в параметре 
+//object.Используй переменную propCount для хранения количества 
+//свойств объекта.
+
+// function countProps(object) {
+//   let propCount = 0;
+//   for (const key in object) {
+//       if (object.hasOwnProperty(key)) {
+//           propCount += 1;
+//       }
+//   }
+//   return propCount;
+// }
+
+// console.log(countProps({}));
+// console.log(countProps({name: 'Mango', age: 2}));
+// console.log(countProps({mail: 'poly@mail.com', isOnline: true, score: 500}));
+
+
+// 13. Перебери объект apartment используя метод Object.keys() и 
+//цикл for...of.Запиши в переменную keys массив ключей собственных 
+//свойств объекта apartment, и добавь в массив values все значения 
+//его свойств.
+
+// const apartment = {
+//   descr: 'Просторная квартира в центре',
+//   rating: 4,
+//   price: 2153,
+// };
+// const values = [];
+// // Пиши код ниже этой строки
+// const keys = Object.keys(apartment);
+// for (const key of keys) {
+//     values.push(apartment[key])
+// }
+// console.log(keys);
+// console.log(values);
+
+//14. Выполни рефакторинг функции countProps(object) 
+//используя метод Object.keys() и, возможно, цикл for...of.
+
+// function countProps(object) {
+//   // Пиши код ниже этой строки
+//     let propCount = 0;
+    
+//     const keys = Object.keys(object);
+//     propCount = keys.length;
+    
+//   return propCount;
+// }
+
+// console.log(countProps({}));
+// console.log(countProps({ name: 'Mango', age: 2 }));
+// console.log(countProps({ mail: 'poly@mail.com', isOnline: true, score: 500 }));
+
+// 15. Запиши в переменную keys массив ключей собственных свойств объекта 
+//apartment, а в переменную values массив всех значений его свойств.
+//Используй методы Object.keys() и Object.values().
+
+// const apartment = {
+//   descr: 'Просторная квартира в центре',
+//   rating: 4,
+//   price: 2153,
+// };
+
+// const keys = Object.keys(apartment);
+// const values = Object.values(apartment);
+
+// console.log(keys);
+// console.log(values);
+
+//16. Напиши функцию countTotalSalary(salaries) которая принимает 
+//объект зарплат, где имя свойства это имя сотрудника, а значение 
+//свойства это зарплата.Функция должна рассчитать общую сумму зарплат 
+//сотрудников и вернуть её.Используй переменную totalSalary для хранения 
+//общей суммы зарплаты.
+
+// function countTotalSalary(salaries) {
+//   let totalSalary = 0;
+//     const values = Object.values(salaries);
+//     for (const value of values) {
+//         totalSalary += value;
+//     }
+    
+//   return totalSalary;
+// }
+
+// console.log(countTotalSalary({}));
+// console.log(countTotalSalary({ mango: 100, poly: 150, alfred: 80 }));
+// console.log(countTotalSalary({ kiwi: 200, poly: 50, ajax: 150 }));
+
+//17. Перебери массив объектов colors используя цикл for...of. 
+//Добавь в массив hexColors значения свойств hex, а в массив 
+//rgbColors значения свойств rgb из всех объектов массива colors.
+
+// const colors = [
+//   { hex: '#f44336', rgb: '244,67,54' },
+//   { hex: '#2196f3', rgb: '33,150,243' },
+//   { hex: '#4caf50', rgb: '76,175,80' },
+//   { hex: '#ffeb3b', rgb: '255,235,59' },
+// ];
+
+// const hexColors = [];
+// const rgbColors = [];
+
+// for (const color of colors) {
+//     hexColors.push(color.hex);
+//     rgbColors.push(color.rgb);
+// }
+
+// console.log(hexColors);
+// console.log(rgbColors);
+
+// 18. Напиши функцию getProductPrice(productName) которая 
+//принимает один параметр productName - название продукта.
+//Функция ищет объект продукта с таким именем(свойство name) 
+//в массиве products и возвращает его цену(свойство price).
+//Если продукт с таким названием не найден, функция должна 
+//возвращать null.
+
+const products = [
+  { name: 'Радар', price: 1300, quantity: 4 },
+  { name: 'Сканер', price: 2700, quantity: 3 },
+  { name: 'Дроид', price: 400, quantity: 7 },
+  { name: 'Захват', price: 1200, quantity: 9 },
+];
+
+function getProductPrice(productName) {
+    for (const product of products) {
+        if (productName === product.name) {
+            return product.price
+        }
+    }
+    return null;
+}
+
+console.log(getProductPrice('Радар'));
+console.log(getProductPrice('Захват'));
+console.log(getProductPrice('Сканер'));
+console.log(getProductPrice('Дроид'));
+console.log(getProductPrice('Двигатель'));
