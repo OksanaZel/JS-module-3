@@ -768,13 +768,15 @@
 const bookShelf = {
   books: ['Последнее королевство', 'Мгла', 'Страж снов'],
   updateBook(oldName, newName) {
-    // Пиши код ниже этой строки
-	
-	
-	
-    // Пиши код выше этой строки
+    const bookIndex = this.books.indexOf(oldName);
+    // console.log(bookIndex);
+    const removeBooks = this.books.splice(bookIndex, 1);
+    // console.log(removeBooks);
+    const newBooks = this.books.push(newName);
+    return newBooks;
   },
+  
 };
 
-console.log(bookShelf.updateBook('Мгла', 'Хроники подземелий'));
-console.log(bookShelf.updateBook('Последнее королевство', 'Дюна'));
+// console.log(bookShelf.updateBook('Мгла', 'Хроники подземелий'));
+// console.log(bookShelf.updateBook('Последнее королевство', 'Дюна'));
