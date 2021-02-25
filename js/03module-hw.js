@@ -650,15 +650,131 @@
 //должны быть значения по умолчанию, хранящиеся в одноимённых 
 //локальных переменных.
 
-function makeTask(data) {
+// function makeTask(data) {
+//   const completed = false;
+//   const category = 'Общее';
+//   const priority = 'Обычный';
+//   const dataDef = {
+//     completed,
+//     category,
+//     priority,
+//     ...data,
+//   }
  
-  const completed = false;
-  const category = 'Общее';
-  const priority = 'Обычный';
-//   Пиши код ниже этой строки
+//   return dataDef;
+// }
 
-  // Пиши код выше этой строки
-}
+// console.log(makeTask({}));
+// console.log(makeTask({ category: 'Домашнее', priority: 'Низкий', text: 'Вынести мусор' }));
+// console.log(makeTask({ category: 'Финансы', text: 'Забрать проценты' }));
+// console.log(makeTask({ priority: 'Низкий', text: 'Выбрать шампунь' }));
+// console.log(makeTask({ text: 'Купить хлеб' }));
 
-console.log(makeTask({}));//{ category: 'Общее', priority: 'Обычный', completed: false }
-console.log(makeTask({ category: 'Домашнее', priority: 'Низкий', text: 'Вынести мусор' })) //{ category: 'Домашнее', priority: 'Низкий', text: 'Вынести мусор', completed: false }.
+//31. Используя операцию rest дополни код функции add() так, 
+//чтобы она принимала любое количество аргументов, считала и 
+//возвращала их сумму.
+
+
+// function add(...args) {
+//   let totalPrice = 0;
+//   for (const arg of args) {
+//     totalPrice += arg;
+//   }
+//   return totalPrice;
+// }
+
+// console.log(add(15, 27));
+// console.log(add(12, 4, 11, 48));
+// console.log(add(32, 6, 13, 19, 8));
+// console.log(add(74, 11, 62, 46, 12, 36));
+
+//32. Функция addOverNum() считает сумму всех аргументов. 
+//Измени параметры и тело функции addOverNum() так, чтобы она 
+//считала сумму только тех аргументов, которые больше чем заданное 
+//число.Это число должно быть первым параметром функции.
+
+// function addOverNum(firstNumber, ...args) {
+//   let total = 0;
+
+//   for (const arg of args) {
+//     if (arg > firstNumber) { 
+//     total += arg;
+//   }
+// }
+//   return total;
+// }
+// console.log(addOverNum(50, 15, 27));
+// console.log(addOverNum(10, 12, 4, 11, 48, 10, 8));
+// console.log(addOverNum(15, 32, 6, 13, 19, 8));
+// console.log(addOverNum(20, 74, 11, 62, 46, 12, 36));
+
+// 33. Функция findMatches() принимает произвольное количество 
+//аргументов.Первым аргументом всегда будет массив чисел, 
+//а остальные аргументы будут просто числами.
+//Дополни код функции так, чтобы она возвращала новый массив 
+//matches, в котором будут только те аргументы, начиная со второго, 
+//которые есть в массиве первого аргумента.
+//Например, findMatches([1, 2, 3, 4, 5], 1, 8, 2, 7) должна 
+//вернуть массив[1, 2], потому что только они есть в массиве 
+//первого аргумента.
+
+// Пиши код ниже этой строки
+// function findMatches(firstArg, ...args) {
+//   const matches = []; // Не изменяй эту строку
+//   for(const arg of args){
+//     if (firstArg.includes(arg)){
+//       matches.push(arg);
+//   }
+//   }
+//   return matches;
+// }
+// console.log(findMatches([1, 2, 3, 4, 5], 1, 8, 2, 7));
+// console.log(findMatches([4, 89, 17, 36, 2], 8, 17, 89, 27, 2));
+// console.log(findMatches([10, 24, 41, 6, 9, 19], 24, 11, 9, 23, 41));
+// console.log(findMatches([63, 11, 8, 29], 4, 7, 16));
+
+// 34. Добавь объекту bookShelf ещё два метода, которые пока 
+//что будут возвращать просто строки по аналогии с getBooks() 
+//и addBook(bookName).
+//Метод removeBook(bookName) будет удалять книгу по имени. 
+//Возвращает строку 'Удаляем книгу <имя книги>', где < имя книги > 
+//это значение параметра bookName.
+//Метод updateBook(oldName, newName) будет обновлять название 
+//книги на новое.Возвращает строку 'Обновляем книгу <старое имя> 
+//на < новое имя > ', где < старое имя > и < новое имя > это 
+//значения параметров oldName и newName соотвественно.
+
+// const bookShelf = {
+//   books: ['Последнее королевство', 'Страж снов'],
+//   getBooks() {
+//     return 'Возвращаем все книги';
+//   },
+//   addBook(bookName) {
+//     return `Добавляем книгу ${bookName}`;
+//   },
+//   removeBook(bookName) {
+//     return `Удаляем книгу ${bookName}`;
+//   },
+//   updateBook(oldName, newName) {
+//     return `Обновляем книгу ${oldName} на ${newName}`
+//   }
+// };
+
+//35. Дополни метод updateBook(oldName, newName) так, чтобы он 
+//изменял название книги с oldName на newName в свойстве books. 
+//Используй indexOf() для того, чтобы найти нужный элемент массива, 
+//и splice() для того чтобы заменить этот элемент.
+
+const bookShelf = {
+  books: ['Последнее королевство', 'Мгла', 'Страж снов'],
+  updateBook(oldName, newName) {
+    // Пиши код ниже этой строки
+	
+	
+	
+    // Пиши код выше этой строки
+  },
+};
+
+console.log(bookShelf.updateBook('Мгла', 'Хроники подземелий'));
+console.log(bookShelf.updateBook('Последнее королевство', 'Дюна'));
