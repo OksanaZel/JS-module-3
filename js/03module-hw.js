@@ -765,18 +765,141 @@
 //Используй indexOf() для того, чтобы найти нужный элемент массива, 
 //и splice() для того чтобы заменить этот элемент.
 
-const bookShelf = {
-  books: ['Последнее королевство', 'Мгла', 'Страж снов'],
-  updateBook(oldName, newName) {
-    const bookIndex = this.books.indexOf(oldName);
-    // console.log(bookIndex);
-    const removeBooks = this.books.splice(bookIndex, 1);
-    // console.log(removeBooks);
-    const newBooks = this.books.push(newName);
-    return newBooks;
-  },
+// const bookShelf = {
+//   books: ['Последнее королевство', 'Мгла', 'Страж снов'],
+//   updateBook(oldName, newName) {
+//     const bookIndex = this.books.indexOf(oldName);
+//     this.books.splice(bookIndex, 1, newName);
+//     return this.books;
+//   },
   
-};
+// };
 
 // console.log(bookShelf.updateBook('Мгла', 'Хроники подземелий'));
 // console.log(bookShelf.updateBook('Последнее королевство', 'Дюна'));
+
+// 36. К нам обратилась владелица лавки зелий «У старой жабы» и 
+//заказала программу для ведения инвентаря - добавления, удаления, 
+//поиска и обновления зелий.Добавь объекту atTheOldToad свойство 
+//potions, значением которого сделай пустой массив.
+
+// const atTheOldToad = {
+//   potions: [],
+// };
+// console.log(atTheOldToad);
+
+//37. Добавь объекту atTheOldToad метод getPotions(), который 
+//просто возвращает значение свойства potions.
+
+// const atTheOldToad = {
+//   potions: ['Зелье скорости', 'Дыхание дракона', 'Каменная кожа'],
+//   getPotions() {
+//     return this.potions;
+//   }
+// };
+
+// console.log(atTheOldToad.getPotions());
+
+//38. Дополни метод addPotion(potionName) так, чтобы он 
+//добавлял зелье potionName в конец массива зелий в свойстве potions.
+
+// const atTheOldToad = {
+//   potions: ['Зелье скорости', 'Дыхание дракона', 'Каменная кожа'],
+//   addPotion(potionName) {
+//     this.potions.push(potionName);
+//     return this.potions;
+//   },
+// };
+// console.log(atTheOldToad.addPotion('Невидимка'));
+// console.log(atTheOldToad.addPotion('Зелье силы'));
+
+//39. Дополни метод removePotion(potionName) так, чтобы он удалял 
+//зелье potionName из массива зелий в свойстве potions.
+
+// const atTheOldToad = {
+//   potions: ["Зелье скорости", "Дыхание дракона", "Каменная кожа"],
+//   removePotion(potionName) {
+//     this.potions.splice(this.potions.indexOf(potionName), 1);
+//     return this.potions
+//   },
+// };
+
+// console.log(atTheOldToad.removePotion('Дыхание дракона'));
+// console.log(atTheOldToad.removePotion('Зелье скорости'));
+
+//40. Дополни метод updatePotionName(oldName, newName) так, 
+//чтобы он обновлял название зелья с oldName на newName, в 
+//массиве зелий в свойстве potions.
+
+// const atTheOldToad = {
+//   potions: ['Зелье скорости', 'Дыхание дракона', 'Каменная кожа'],
+//   updatePotionName(oldName, newName) {
+//     this.potions.splice(this.potions.indexOf(oldName), 1, newName);
+//     return this.potions
+//   },
+// };
+// console.log(atTheOldToad.updatePotionName('Дыхание дракона', 'Полиморф'));
+// console.log(atTheOldToad.updatePotionName('Каменная кожа', 'Невидимка'));
+
+//41. Заказчица хочет чтобы каждое зелье было представлено не 
+//только именем, но и ценой, а в будущем может быть и другими 
+//характеристиками.Поэтому теперь в свойстве potions будет храниться 
+//массив объектов со следующими свойствами.
+
+const atTheOldToad = {
+  potions: [
+    { name: 'Зелье скорости', price: 460 },
+    { name: 'Дыхание дракона', price: 780 },
+    { name: 'Каменная кожа', price: 520 },
+  ],
+  // Пиши код ниже этой строки
+  getPotions() {
+    return this.potions;
+  },
+  addPotion(potionName) {
+    if (this.potions.includes(potionName)) {
+      return `Зелье ${potionName} уже есть в инвентаре!`;
+    }
+
+    this.potions.push(potionName);
+  },
+ removePotion(potionName) {
+    const potionIndex = this.potions.indexOf(potionName);
+
+    if (potionIndex === -1) {
+      return `Зелья ${potionName} нет в инвентаре!`;
+    }
+
+    this.potions.splice(potionIndex, 1);
+
+    //  remove(productName) {
+    // const { items } = this;
+
+    // for (let i = 0; i < items.length; i += 1) {
+    //   const item = items[i];
+
+    //   if (productName === item.name) {
+    //     console.log('нашли такой продукт ', productName);
+    //     console.log('индекс: ', i);
+
+    //     items.splice(i, 1);
+  },
+  updatePotionName(oldName, newName) {
+    const potionIndex = this.potions.indexOf(oldName);
+
+    if (potionIndex === -1) {
+      return `Зелья ${oldName} нет в инвентаре!`;
+    }
+
+    this.potions.splice(potionIndex, 1, newName);
+  },
+  // Пиши код выше этой строки
+};
+
+console.table(atTheOldToad.getPotions());
+console.log(atTheOldToad.addPotion({ name: 'Невидимка', price: 620 }));
+console.log(atTheOldToad.addPotion({ name: 'Зелье силы', price: 270 }));
+console.log(atTheOldToad.removePotion('Дыхание дракона'));
+console.log(atTheOldToad.removePotion('Зелье скорости'));
+console.log(atTheOldToad.updatePotionName('Дыхание дракона', 'Полиморф'));
+console.log(atTheOldToad.updatePotionName('Каменная кожа', 'Зелье неуязвимости'));
