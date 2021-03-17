@@ -873,7 +873,6 @@ const atTheOldToad = {
         potions.splice(i, 1);
       }
     }
-    
   },
   updatePotionName(oldName, newName) {
     for (const potion of this.potions) {
