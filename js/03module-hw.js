@@ -7,7 +7,7 @@
 //tags - метаинформация, массив ['premium', 'promoted', 'top'].
 
 // const apartment = {
-// imgUrl: 'https://via.placeholder.com/640x480',
+// imgUrl: 'https://via.placeholder.com/640x480',asq 3
 // descr: 'Просторная квартира в центре',
 // rating: 4,
 // price: 2153,

@@ -49,7 +49,10 @@ const countProps = function(obj) {
 
 const findBestEmployee = function(employees) {
   // твой код
-    
+    const values = Object.values(employees);
+    console.log(values);
+
+
 };
 
 /*
