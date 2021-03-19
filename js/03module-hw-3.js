@@ -27,9 +27,7 @@
 const countProps = function(obj) {
     const values = Object.values(obj);
     let total = 0;
-    for (const value of values) {
-        total += 1;
-    }
+    total = values.length;
     return total;
 };
 
@@ -49,23 +47,22 @@ const countProps = function(obj) {
 
 const findBestEmployee = function(employees) {
   // твой код
-    const values = Object.values(employees);
-    console.log(values);
 
-
+  
 };
 
 /*
  * Вызовы функции для проверки работоспособности твоей реализации.
  */
-console.log(
-  findBestEmployee({
-    ann: 29,
-    david: 35,
-    helen: 1,
-    lorence: 99,
-  }),
-); // lorence
+// console.log(
+//   findBestEmployee({
+//     ann: 29,
+//     david: 35,
+//     helen: 1,
+//     lorence: 99,
+//   }),
+// )
+ // lorence
 
 // console.log(
 //   findBestEmployee({
